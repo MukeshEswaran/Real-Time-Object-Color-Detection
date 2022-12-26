@@ -11,6 +11,7 @@ To show the color we need to bitwise and the current frame with the mask. For th
 
 syntax: 
 result = cv2.bitwise_and(pic1, pic2, mask)
+
 where pic1 and pic 2 are the input images, and the other is a mask. A mask can be thought of as a cut-out shape applied to an image so that only the cut-out part is visible. 
 
 Implementation:
@@ -22,8 +23,12 @@ Then start an infinite while loop, to read every frame read by the webcam. Conve
 
 syntax:
 cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+
 After that specify the lower and upper limit of the color blue ( or any color you prefer). By creating two NumPy arrays with the desired lower and upper limit as [H, S, V].  These two NumPy arrays will be used as arguments in the thresholding function i.e. the cv2.inRange() function. Which takes three arguments, image source, lower limit, and the upper limit.
 
 syntax:
 cv2.inRange(source, lower_limit, upper_limit)
-cv2.inRange() function sets all the values that lie within the range to 255 and the rest to 0.  The output of this function will be our mask. Finally passing this mask in the bitwise_and function mentioned earlier will produce the desired result.
+
+cv2.inRange() 
+
+function sets all the values that lie within the range to 255 and the rest to 0.  The output of this function will be our mask. Finally passing this mask in the bitwise_and function mentioned earlier will produce the desired result.
